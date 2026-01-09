@@ -61,4 +61,5 @@ This project demonstrates applied competence in deep learning engineering, parti
 
 Author
 
-Kirtu
+Kirtan
+
