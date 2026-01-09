@@ -3,25 +3,24 @@ import numpy as np
 import tensorflow as tf
 import pandas as pd
 import pickle
-from google.colab import drive
+import os
 
+# Base directory (project root)
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
-BASE_PATH = "/content/drive/MyDrive/ml_projects/DL_ANN_Binary_classification_project"
-
-# --- Cache heavy resources ---
 @st.cache_resource
 def load_artifacts():
     model = tf.keras.models.load_model(
-        f"{BASE_PATH}/artifacts/models/best_model.h5"
+        os.path.join(BASE_PATH, "artifacts", "models", "best_model.h5")
     )
 
-    with open(f"{BASE_PATH}/label_encoder_gender.pkl", "rb") as f:
+    with open(os.path.join(BASE_PATH, "label_encoder_gender.pkl"), "rb") as f:
         label_encoder_gender = pickle.load(f)
 
-    with open(f"{BASE_PATH}/onehot_encoder_geo.pkl", "rb") as f:
+    with open(os.path.join(BASE_PATH, "onehot_encoder_geo.pkl"), "rb") as f:
         onehot_encoder_geo = pickle.load(f)
 
-    with open(f"{BASE_PATH}/scaler.pkl", "rb") as f:
+    with open(os.path.join(BASE_PATH, "scaler.pkl"), "rb") as f:
         scaler = pickle.load(f)
 
     return model, label_encoder_gender, onehot_encoder_geo, scaler
