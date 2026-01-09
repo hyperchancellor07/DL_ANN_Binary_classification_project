@@ -1,0 +1,16 @@
+# Data
+*.csv
+
+# Models & artifacts
+*.h5
+*.pkl
+artifacts/
+
+# Logs
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
